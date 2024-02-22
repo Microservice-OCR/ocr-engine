@@ -3,7 +3,7 @@ import { RecognizeController, RecognizeFromIdController } from "./controllers";
 let port:number;
 
 if(process.env.OCR_ENGINE_PORT === undefined){
-    port = 3000;
+    port = 80;
 }else{
     port = parseInt(process.env.OCR_ENGINE_PORT,10)
 }
