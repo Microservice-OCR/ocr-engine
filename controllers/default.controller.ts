@@ -1,10 +1,6 @@
 import express, { Request, Response, Router } from "express";
-import { Engine } from "../ocr";
 import { config } from "dotenv";
-import * as fs from 'fs'
 import { ExpressController } from "../api";
-import { IComplexRecognition, IRecognition } from "../ocr/models";
-import { IInput } from "../models";
 config()
 
 export class DefaultController implements ExpressController{  
