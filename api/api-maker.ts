@@ -5,12 +5,10 @@ import { ExpressController } from "./ExpressController.interface";
 export class APIMaker{
     app:Express;
     controllers:ExpressController[]
-    port:number
     server: import("http").Server<typeof import("http").IncomingMessage, typeof import("http").ServerResponse> | undefined;
-    constructor(_port:number){
+    constructor(){
         this.app = express();
         this.controllers = [];
-        this.port = _port
     }
 
     SetupControllers = (_controllers:ExpressController[]):void=>{
@@ -27,9 +25,6 @@ export class APIMaker{
 
     LaunchAPI = async ():Promise<void> => {
         this._buildRoutes();
-        this.server = this.app.listen(this.port,()=>{
-            console.log(`Listening on port ${this.port}...`);            
-        })
     }
 
     CloseAPI = ():void=>{
