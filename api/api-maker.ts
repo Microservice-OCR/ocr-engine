@@ -25,6 +25,7 @@ export class APIMaker{
 
     LaunchAPI = async ():Promise<void> => {
         this._buildRoutes();
+        this.app.listen()
     }
 
     CloseAPI = ():void=>{
