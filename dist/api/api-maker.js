@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.APIMaker = void 0;
 const express_1 = __importDefault(require("express"));
 class APIMaker {
-    constructor() {
+    constructor(_port) {
         this.SetupControllers = (_controllers) => {
             this.controllers = _controllers;
         };
@@ -28,7 +28,14 @@ class APIMaker {
         };
         this.LaunchAPI = () => __awaiter(this, void 0, void 0, function* () {
             this._buildRoutes();
-            this.app.listen();
+            if (this.port != null) {
+                this.app.listen(this.port, () => {
+                    console.log(`API listening on port ${this.port}`);
+                });
+            }
+            else {
+                this.app.listen();
+            }
         });
         this.CloseAPI = () => {
             if (this.server == undefined)
@@ -38,6 +45,8 @@ class APIMaker {
         };
         this.app = (0, express_1.default)();
         this.controllers = [];
+        if (_port != null)
+            this.port = _port;
     }
 }
 exports.APIMaker = APIMaker;
