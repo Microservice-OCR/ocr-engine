@@ -1,0 +1,6 @@
+node_modules/*
+!node_modules/tesseract.js-core/tesseract-core-simd.wasm
+coverage
+.env
+.scannerwork
+.vercel
